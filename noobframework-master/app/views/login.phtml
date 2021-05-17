@@ -1,0 +1,35 @@
+  <!DOCTYPE html>
+  <html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <title>َAnimated Login Form</title>
+    <link rel="stylesheet" href="../../public/css/styles.css">
+  </head>
+
+  <body>
+    <h1 style="color: white;" align="center">Login</h1>
+    <form class="box" action="/user/login" method="post">
+      <div class="mb-3">
+        <p style="color:red"><?php if (isset($email)) echo $message; ?>
+
+      </div>
+      <?php if (isset($email)) { ?>
+        <input type="text" class="form-control" placeholder="Email" name="email" value=" <?= $email ?>" required>
+
+
+      <?php } else { ?>
+
+        <input type="text" class="form-control" placeholder="Email" name="email" required>
+
+
+      <?php } ?>
+
+      <input type="text" class="form-control" placeholder="Senha" name="senha" required>
+
+      <input type="submit" name="save" value="Submit">
+    </form>
+
+  </body>
+
+  </html>

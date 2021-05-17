@@ -1,0 +1,38 @@
+  <!DOCTYPE html>
+  <html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <title>َAnimated Login Form</title>
+    <link rel="stylesheet" href="../../public/css/styles.css">
+  </head>
+
+  <body>
+    <h1 style="color: white;" align="center">Cadastro</h1> <br>
+    <form class="box" action="/user/create" method="post">
+      <?php if (!isset($user)) { ?>
+        <input type="text" class="form-control" placeholder="Nome" name="nome" required>
+        <input type="text" class="form-control" placeholder="Email" name="email" required>
+        <input type="text" class="form-control" placeholder="Senha" name="senha" required>
+        <div class="msg">
+          <textarea placeholder="Mensagem" name="mensagem" required></textarea>
+
+        </div>
+        <input type="submit" name="save" value="Submit">
+    </form>
+  <?php } else { ?>
+    <form action="/user/edit/<?= $user['id']; ?>" method="post">
+      <input type="text" class="form-control" placeholder="Nome" name="nome" required value="<?= $user['nome']; ?>">
+      <input type="text" class="form-control" placeholder="Email" name="email" required value="<?= $user['email']; ?>">
+      <input type="text" class="form-control" placeholder="Senha" name="senha" required>
+      <div class="msg">
+        <textarea placeholder="Mensagem" name="mensagem" required><?= $user['mensagem']; ?></textarea>
+        <input type="submit" name="save" value="Submit">
+      <?php } ?>
+
+
+    </form>
+
+  </body>
+
+  </html>
